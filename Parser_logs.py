@@ -16,7 +16,8 @@ with open('coul_errors.txt', 'w', encoding='utf-8') as file:
         with open(i, 'r', encoding='utf-8')  as coul_txt:
             for line in coul_txt:
                 for m,n in type_errors.items():
-                    type_errors[m]=type_errors[m]+line.count(m)
+                    if line.count(m)!=0:
+                      type_errors[m]=type_errors[m]+line.count(m)
             for m,n in type_errors.items():
              if n!=0:
                  print(i,':', m, ' - ', n, file=file)
